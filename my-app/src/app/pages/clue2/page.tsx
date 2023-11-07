@@ -1,15 +1,9 @@
-export default function Page() {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 pb-96 pt-96 text-center bg-cyan-700">
-        
-       <div className="mb-1 text-lg font-medium text-white">You found Clue 2!</div>
+// pages/clue2.js
+import ClueComponent from '../../components/ClueComponent';
+import { completeClue } from '../../utils'
 
-      <div className="w-full h-6 bg-gray-200 rounded-full dark:bg-gray-700">
-          <div className="h-6 bg-blue-600 rounded-full dark:bg-blue-500" style={{ width: '60%' }}></div>
-      </div>
-      
-        
-      </main>
-    )
-  }
-  
+export default function Clue2Page() {
+
+  // Assuming the check has passed, render the ClueComponent
+  return <ClueComponent clueNumber={2} progressPercentage={20} />;
+}
