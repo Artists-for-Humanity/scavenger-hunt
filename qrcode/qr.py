@@ -8,4 +8,4 @@ data = 'http://192.168.1.191:3000'
 img = qrcode.make(data)
  
 # Saving as an image file
-img.save('Home.png')
+img.save('Clue10.png') 
