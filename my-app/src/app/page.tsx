@@ -25,7 +25,7 @@ export default function Home() {
         <div className="text-4xl text-orange-200 font-cherry mt-20">Thanks, get hunting!</div>
       ) : (
         <form onSubmit={handleSubmit}>
-          <div className="mb-1 pb-20 text-4xl text-orange-200	font-cherry">Let's start our Scavenger Hunt!</div>
+          <div className="mb-1 pb-20 text-4xl text-orange-200	font-cherry">Lets start our Scavenger Hunt!</div>
           <div className='flex flex-col justify-center pl-20 pr-20'>
             <input
               type="text"
