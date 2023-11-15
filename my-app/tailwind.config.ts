@@ -17,6 +17,9 @@ const config: Config = {
         customGray: '#D9D9D9',
         customGreen: '#84CC78',
       },
+      fontFamily: {
+        cherry: 'Cherry, ui-serif',
+      }
     },
   },
   plugins: [],
