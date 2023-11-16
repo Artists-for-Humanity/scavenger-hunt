@@ -1,9 +1,11 @@
+'use client';
 
+import React from 'react';
 import ClueComponent from '../../components/ClueComponent'
-import { completeClue } from '../../utils'
 
 export default function Clue5Page() {
-  completeClue(4);
-  
-  return <ClueComponent clueNumber={5} progressPercentage={50} />;
+  return (
+    <ClueComponent clueNumber={5} />
+  ) 
+
 }

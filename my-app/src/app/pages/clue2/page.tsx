@@ -1,9 +1,24 @@
-// pages/clue2.js
-import ClueComponent from '../../components/ClueComponent';
-import { completeClue } from '../../utils'
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import ClueComponent from '../../components/ClueComponent'
 
 export default function Clue2Page() {
-    completeClue(1);
-  // Assuming the check has passed, render the ClueComponent
-  return <ClueComponent clueNumber={2} progressPercentage={20} />;
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    // when the component mounts, retrieve the userID from local storage
+    const storedUserId = localStorage.getItem('userID');
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+    // if there's no userID in local storage, you should handle it appropriately
+  }, []);
+
+  //  render the ClueComponent if the userId is not empty
+  return userId ? (
+    <ClueComponent clueNumber={2} userId={userId} />
+  ) : (
+    <div>Loading or handle the missing userID appropriately</div>
+  );
 }

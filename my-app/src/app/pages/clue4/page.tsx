@@ -1,9 +1,24 @@
+'use client';
 
+import React, { useState, useEffect } from 'react';
 import ClueComponent from '../../components/ClueComponent'
-import { completeClue } from '../../utils'
 
-export default function Clue4Page() {
-  completeClue(3);
-  
-  return <ClueComponent clueNumber={4} progressPercentage={40} />;
+export default function Clue5Page() {
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    // when the component mounts, retrieve the userID from local storage
+    const storedUserId = localStorage.getItem('userID');
+    if (storedUserId) {
+      setUserId(storedUserId);
+    }
+    // if there's no userID in local storage, you should handle it appropriately
+  }, []);
+
+  //  render the ClueComponent if the userId is not empty
+  return userId ? (
+    <ClueComponent clueNumber={5} userId={userId} />
+  ) : (
+    <div>Loading or handle the missing userID appropriately</div>
+  );
 }
