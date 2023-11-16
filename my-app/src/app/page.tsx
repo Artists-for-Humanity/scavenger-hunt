@@ -1,31 +1,40 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { generateUniqueID } from './utils';
 
 export default function Home() {
-  //set userName variable and setUserName to change/update username
-  const[userName, setUserName] = useState('');
+  const [userName, setUserName] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  //triggered when form is submitted
   const handleSubmit = (e: any) => {
-    //prevent default reload of  page from submitting form
     e.preventDefault();
-    //check if username isn't empty
-    if (userName) {
-      //set username and initial clue [0]
+
+    if (userName.trim()) {
+      let userID = Object.keys(localStorage).find(key => 
+        localStorage.getItem(key) === userName && key.startsWith('completedClues_')
+      )?.split('_')[1];
+
+      if (!userID) {
+        userID = generateUniqueID();
+        localStorage.setItem(`completedClues_${userID}`, JSON.stringify([0]));
+      }
+
+      localStorage.setItem('userID', userID);
       localStorage.setItem('userName', userName);
-      localStorage.setItem('completedClues', JSON.stringify([0]));
-      setFormSubmitted(true); 
+
+      setFormSubmitted(true); // Update the formSubmitted state to true
     }
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10 pt-60 pb-96  text-center  bg-white">
-     {formSubmitted ? ( // Conditional rendering
-        <div className="text-4xl text-orange-200 font-cherry mt-20">Thanks, get hunting!</div>
+    <main className="flex min-h-screen flex-col items-center justify-between p-10 pt-60 pb-96 text-center bg-white">
+      {formSubmitted ? (
+        // If the form has been submitted, display the thank you message and proceed to hunt
+        <div className="text-4xl text-orange-200 font-cherry mt-20">Thanks, {userName}. Get hunting!</div>
       ) : (
+        // Otherwise, show the form to enter the user name
         <form onSubmit={handleSubmit}>
-          <div className="mb-1 pb-20 text-4xl text-orange-200	font-cherry">Lets start our Scavenger Hunt!</div>
+          <div className="mb-1 pb-20 text-4xl text-orange-200 font-cherry">Let's start our Scavenger Hunt!</div>
           <div className='flex flex-col justify-center pl-20 pr-20'>
             <input
               type="text"
@@ -44,7 +53,6 @@ export default function Home() {
           </div>
         </form>
       )}
-  </main>
+    </main>
   );
 }
-

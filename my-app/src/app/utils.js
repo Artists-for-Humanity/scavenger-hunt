@@ -1,32 +1,31 @@
 // utils.js
 
+export const generateUniqueID = () => {
+    let uniqueID;
+    do {
+        uniqueID = Math.floor(1000 + Math.random() * 9000).toString();
+    } while (localStorage.getItem(uniqueID)); // Ensure ID is unique
+    return uniqueID;
+};
 
-//takes in clue number that is to be marked as complete
-export const completeClue = (clueNumber) => {
-    // checks if opned in a browser
+export const completeClue = (clueNumber, userId) => {
     if (typeof window !== 'undefined') {
-        // retrieves current list of completed clues and assigns to "completedClues"
-        let completedClues = localStorage.getItem('completedClues');
-        // checks is list is not empty
+        const key = `completedClues_${userId}`;
+        let completedClues = localStorage.getItem(key);
         completedClues = completedClues ? JSON.parse(completedClues) : [];
-        // if list of completed clues does not include current clue number......
         if (!completedClues.includes(clueNumber)) {
-            // add it to the completedClues array
             completedClues.push(clueNumber);
-            // set local storage value  back to completedClues value
-            localStorage.setItem('completedClues', JSON.stringify(completedClues));
+            localStorage.setItem(key, JSON.stringify(completedClues));
         }
     }
 };
 
-// takes in number of clue trying to be acessed 
-export const canAccessClue = (clueNumber) => {
-    // checks if opened in a browser
+export const canAccessClue = (clueNumber, userId) => {
     if (typeof window !== 'undefined') {
-        // check for completed clues in local storage OR [] empty array if there's nothing
-        const completedClues = JSON.parse(localStorage.getItem('completedClues') || '[]');
+        const key = `completedClues_${userId}`;
+        console.log(key)
 
-        //all clues from 0 to (clueNumber - 1) check if they exist in the completedClues array
+        const completedClues = JSON.parse(localStorage.getItem(key) || '[]');
         for (let i = 0; i < clueNumber; i++) {
             if (!completedClues.includes(i)) {
                 return false;
