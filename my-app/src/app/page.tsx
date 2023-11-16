@@ -34,7 +34,7 @@ export default function Home() {
       ) : (
         // Otherwise, show the form to enter the user name
         <form onSubmit={handleSubmit}>
-          <div className="mb-1 pb-20 text-4xl text-orange-200 font-cherry">Lets start our Scavenger Hunt!</div>
+          <div className="mb-1 pb-20 text-4xl text-orange-200 font-cherry">Lets start our Scavenger Hunt!!</div>
           <div className='flex flex-col justify-center pl-20 pr-20'>
             <input
               type="text"
