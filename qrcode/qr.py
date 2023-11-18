@@ -2,10 +2,10 @@
 import qrcode
  
 # Data to be encoded
-data = 'ctechinteractives.pro'
+data = 'https://www.ctechinteractives.pro/pages/clue10'
  
 # Encoding data using make() function
 img = qrcode.make(data)
  
 # Saving as an image file
-img.save('Home.png') 
+img.save('Clue10.png') 
