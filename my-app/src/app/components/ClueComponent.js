@@ -1,13 +1,24 @@
 // ClueComponent.js
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { completeClue, canAccessClue, } from '../utils'
 import Image from 'next/image';
 
 const ClueComponent = ({ clueNumber, userId }) => {
     const totalClues = 10;
     const errorImageSrc = '/warning.png';
-    console.log(userId)
+    const [progress, setProgress] = useState(0);
+
+    useEffect(() => {
+        // set initial progress
+        setProgress((clueNumber / totalClues) * 100);
+    }, []);
+
+    useEffect(() => {
+        // update progress
+        const newProgress = (clueNumber / totalClues) * 100;
+        setProgress(newProgress);
+    }, [clueNumber]);
 
     if (canAccessClue(clueNumber, userId)) {
         completeClue(clueNumber, userId);
@@ -15,7 +26,9 @@ const ClueComponent = ({ clueNumber, userId }) => {
 
             <main className="flex min-h-screen flex-col items-center justify-between p-6 pt-12 text-center bg-white">
                 <div className="w-full h-6 rounded-full bg-customGray relative">
-                    <div className="h-6 rounded-full bg-customGreen" style={{ width: `${(clueNumber / totalClues) * 100}%` }}></div>
+                    <div className="h-6 rounded-full bg-customGreen"
+                        style={{ width: `${progress}%`, transition: 'width 0.5s ease-in-out' }}></div>
+                    <div className="absolute top-6 right-0 mr-2 text-black text-sm">{clueNumber}/{totalClues}</div>
                     <div className="absolute top-6 right-0 mr-2  text-black text-sm">{clueNumber}/{totalClues}</div>
                 </div>
                 <div className="mb-1 text-lg font-medium text-black pb-96">You found Clue {clueNumber}!</div>
