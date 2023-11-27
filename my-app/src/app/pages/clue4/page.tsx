@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import ClueComponent from '../../components/ClueComponent'
+import print5 from '../../../../public/print5.jpg'
+
 
 export default function Clue4Page() {
   const [userId, setUserId] = useState('');
@@ -17,7 +19,7 @@ export default function Clue4Page() {
 
   //  render the ClueComponent if the userId is not empty
   return userId ? (
-    <ClueComponent clueNumber={4} userId={userId} />
+    <ClueComponent clueNumber={4} userId={userId} print={print5} />
   ) : (
     <div>Loading or handle the missing userID appropriately</div>
   );

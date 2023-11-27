@@ -17,7 +17,7 @@ export default function Clue10Page() {
 
   //  render the ClueComponent if the userId is not empty
   return userId ? (
-    <ClueComponent clueNumber={10} userId={userId} />
+    <ClueComponent clueNumber={10} userId={userId} print={null}/>
   ) : (
     <div>Loading or handle the missing userID appropriately</div>
   );

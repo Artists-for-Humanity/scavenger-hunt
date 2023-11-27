@@ -1,6 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import { generateUniqueID } from './utils';
+import print1 from '../../public/print1.jpg'
+import Image from 'next/image';
+
 
 export default function Home() {
   const [userName, setUserName] = useState('');
@@ -27,10 +30,19 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10 pt-60 pb-96 text-center bg-white">
+    <main className="flex min-h-screen flex-col items-center justify-between p-12 pt-32 pb-96 text-center bg-white">
       {formSubmitted ? (
+  
         // If the form has been submitted, display the thank you message and proceed to hunt
-        <div className="text-4xl text-orange-200 font-cherry mt-20">Thanks, {userName}. Get hunting!</div>
+        <div>
+        <div className="text-4xl text-orange-200 font-cherry pb-12">Thanks, {userName}. Get hunting!</div>
+        <div className='text-black text-xl font-cherry'>Look for this print first!</div>
+        <Image src={print1} alt="Print Clue" width={300} height={400} className="pb-32" />
+
+        </div>
+      
+  
+   
       ) : (
         // Otherwise, show the form to enter the user name
         <form onSubmit={handleSubmit}>

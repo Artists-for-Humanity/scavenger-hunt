@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import ClueComponent from '../../components/ClueComponent'
+import print9 from '../../../../public/print9.jpg'
+
 
 export default function Clue8Page() {
   const [userId, setUserId] = useState('');
@@ -17,7 +19,7 @@ export default function Clue8Page() {
 
   //  render the ClueComponent if the userId is not empty
   return userId ? (
-    <ClueComponent clueNumber={8} userId={userId} />
+    <ClueComponent clueNumber={8} userId={userId} print={print9} />
   ) : (
     <div>Loading or handle the missing userID appropriately</div>
   );
