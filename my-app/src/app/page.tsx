@@ -1,8 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import { generateUniqueID } from './utils';
-import print1 from '../../public/print1.jpg'
+import print1 from '../../public/print1.jpg';
 import Image from 'next/image';
+import afh_red_tag from "../../public/AFH_Red_Tag_Wordmark.png";
 
 
 export default function Home() {
@@ -30,15 +31,18 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12 pt-32 pb-96 text-center bg-white">
+    <main className="flex min-h-screen flex-col items-center justify-between p-12 pt-24 pb-96 text-center bg-afhNight">
       {formSubmitted ? (
   
         // If the form has been submitted, display the thank you message and proceed to hunt
-        <div>
-        <div className="text-4xl text-orange-200 font-cherry pb-12">Thanks, {userName}. Get hunting!</div>
-        <div className='text-black text-xl font-cherry'>Look for this print first!</div>
-        <Image src={print1} alt="Print Clue" width={300} height={400} className="pb-32" />
+        <div >
+        <div className="text-4xl text-afhRed font-verdana pb-12">Thanks, {userName}. Get Hunting!</div>
+        <div className='text-afhRed text-xl font-verdana pb-4'>Look for this print first!</div>
+        <div className="flex justify-center items-center flex-col">
+        <Image src={print1} alt="Print Clue" width={300} height={400} className="pb-10" />
+        <Image src={afh_red_tag} alt="AFH Red" width={200} height={300} className="" />
 
+        </div>
         </div>
       
   
@@ -46,7 +50,7 @@ export default function Home() {
       ) : (
         // Otherwise, show the form to enter the user name
         <form onSubmit={handleSubmit}>
-          <div className="mb-1 pb-20 text-4xl text-orange-200 font-cherry">Lets start our Scavenger Hunt!!</div>
+          <div className="mb-1 pb-20 text-4xl text-afhRed font-verdana">Lets start our Scavenger Hunt!!</div>
           <div className='flex flex-col justify-center pl-20 pr-20'>
             <input
               type="text"

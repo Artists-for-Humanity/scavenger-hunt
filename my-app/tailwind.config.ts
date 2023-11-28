@@ -16,9 +16,12 @@ const config: Config = {
       colors: {
         customGray: '#D9D9D9',
         customGreen: '#84CC78',
+        afhNight: '#313E48',
+        afhRed: '#F26631',
       },
       fontFamily: {
-        cherry: 'Cherry, ui-serif',
+        // cherry: 'Cherry, ui-serif',
+        verdana: 'Verdana, ui-serif',
       }
     },
   },
