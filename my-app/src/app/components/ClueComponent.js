@@ -36,9 +36,9 @@ const ClueComponent = ({ clueNumber, userId, print }) => {
                         <div className="absolute top-6 right-0 mr-2  text-white text-sm">{clueNumber}/{totalClues}</div>
                     </div>
                     <Confetti gravity={gravity} />
-                    <h1 className="mb-4 mt-48 text-4xl text-orange-200 font-bold text-white font-verdana">Congrats! You finished the Holiday Hunt!</h1>
-                    <p className=" text-white text-lg font-verdana p-10 pb-1 mt-24">Return to the start to receive a free print of your choice. Thanks for playing!</p>
-                    <a href="https://www.afhboston.org/donate" className=" mb-20 text-white	 text-xl font-verdana underline decoration-dotted">Donate to AFH</a>
+                    <h1 className="mb-4 mt-48 text-4xl text-orange-200 font-bold text-white font-verdana ">Congrats! You finished the Holiday Hunt!</h1>
+                    <p className=" text-white text-lg font-verdana p-10 pb-1 mt-24 pb-6 ">Show this victory screen on your phone to the scavenger hunt organizer to claim your prize!</p>
+                    <a href="https://www.afhboston.org/donate" className=" mb-10 text-white	 text-xl font-verdana underline decoration-dotted">Donate to AFH</a>
                     <Image src={afh_red_tag} alt="AFH Red" width={200} height={300} className="" />
 
                 </main>
