@@ -31,16 +31,16 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12 pt-32 pb-96 text-center bg-afhNight">
+    <main className="flex min-h-screen flex-col items-center justify-between p-12 pt-24 pb-96 text-center bg-afhNight">
       {formSubmitted ? (
   
         // If the form has been submitted, display the thank you message and proceed to hunt
         <div >
         <div className="text-4xl text-afhRed font-verdana pb-12">Thanks, {userName}. Get Hunting!</div>
-        <div className='text-afhRed text-xl font-verdana'>Look for this print first!</div>
-        <div className="flex justify-center items-center">
-        <Image src={print1} alt="Print Clue" width={300} height={400} className="pb-32" />
-        <Image src={afh_red_tag} alt="AFH Red" width={300} height={400} className="pb-32" />
+        <div className='text-afhRed text-xl font-verdana pb-4'>Look for this print first!</div>
+        <div className="flex justify-center items-center flex-col">
+        <Image src={print1} alt="Print Clue" width={300} height={400} className="pb-10" />
+        <Image src={afh_red_tag} alt="AFH Red" width={200} height={300} className="" />
 
         </div>
         </div>
