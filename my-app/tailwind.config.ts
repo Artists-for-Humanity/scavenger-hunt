@@ -18,6 +18,7 @@ const config: Config = {
         customGreen: '#84CC78',
         afhNight: '#313E48',
         afhRed: '#F26631',
+        afhYellow: '#FFE512',
       },
       fontFamily: {
         // cherry: 'Cherry, ui-serif',
